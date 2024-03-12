@@ -1,0 +1,135 @@
+{
+  "project_info": {
+    "project_number": "909610626032",
+    "firebase_url": "https://movie-flix-mxnzli-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "movie-flix-mxnzli",
+    "storage_bucket": "movie-flix-mxnzli.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909610626032:android:47aa681c9c0baed08b0b35",
+        "android_client_info": {
+          "package_name": "com.moviea.momuflix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909610626032-aic536ic0bgq3smechcro4ohtn6jeq4v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moviea.momuflix",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "909610626032-khgk6css4bvompnl07c3fjgn1737n0kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApK8XqAQ4L6Es7Im3HnmM81MLDjwRZkkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909610626032-e49conhctilcuk55cuiv55gp5jlorudm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "909610626032-708obkloffjh5cp9t33fbj1gs4jpmsrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "momuflix.aitek.cloud"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909610626032:android:8bf9fb5aace81c258b0b35",
+        "android_client_info": {
+          "package_name": "com.moviflix.appcom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909610626032-tnu12ha4q3cmv110c0l6j0f1o5ki0llv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.moviflix.appcom",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "909610626032-khgk6css4bvompnl07c3fjgn1737n0kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApK8XqAQ4L6Es7Im3HnmM81MLDjwRZkkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909610626032-e49conhctilcuk55cuiv55gp5jlorudm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "909610626032-708obkloffjh5cp9t33fbj1gs4jpmsrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "momuflix.aitek.cloud"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909610626032:android:9d0df7398cb2c4a58b0b35",
+        "android_client_info": {
+          "package_name": "momuflix.aitek.cloud"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "909610626032-khgk6css4bvompnl07c3fjgn1737n0kn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApK8XqAQ4L6Es7Im3HnmM81MLDjwRZkkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "909610626032-e49conhctilcuk55cuiv55gp5jlorudm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "909610626032-708obkloffjh5cp9t33fbj1gs4jpmsrk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "momuflix.aitek.cloud"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
