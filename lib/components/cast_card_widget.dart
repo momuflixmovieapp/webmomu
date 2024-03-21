@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'cast_card_model.dart';
 export 'cast_card_model.dart';
 
@@ -48,7 +49,7 @@ class _CastCardWidgetState extends State<CastCardWidget> {
     return Container(
       width: 60.0,
       height: 112.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.transparent,
         boxShadow: [
           BoxShadow(
@@ -72,7 +73,7 @@ class _CastCardWidgetState extends State<CastCardWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
             child: Text(
               valueOrDefault<String>(
                 widget.name,

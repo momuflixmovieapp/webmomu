@@ -1,8 +1,14 @@
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
-import 'watching_movie_widget.dart' show WatchingMovieWidget;
+import '/flutter_flow/flutter_flow_web_view.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'now_playing_widget.dart' show NowPlayingWidget;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
-class WatchingMovieModel extends FlutterFlowModel<WatchingMovieWidget> {
+class NowPlayingModel extends FlutterFlowModel<NowPlayingWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

@@ -2,7 +2,10 @@ import '/components/subscription_card_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'subscription_model.dart';
 export 'subscription_model.dart';
 
@@ -59,21 +62,21 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
               context.pop();
             },
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                     child: Text(
                       'Subscribe to Premium Plan',
                       style: FlutterFlowTheme.of(context).headlineMedium,
@@ -81,7 +84,7 @@ class _SubscriptionWidgetState extends State<SubscriptionWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 32.0),
+                        EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 32.0),
                     child: Text(
                       'Select one of the following Premium plans for unlimited access to all videos, then press the continue button',
                       textAlign: TextAlign.center,

@@ -4,6 +4,7 @@ import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'movie_card_model.dart';
 export 'movie_card_model.dart';
 
@@ -54,7 +55,7 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
     return Container(
       width: 115.0,
       height: 224.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.transparent,
       ),
       child: Column(
@@ -62,7 +63,7 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          Container(
             width: 115.0,
             height: 172.0,
             child: custom_widgets.ImdbImage(
@@ -74,7 +75,7 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 8.0),
             child: Text(
               widget.title!,
               maxLines: 1,
@@ -102,9 +103,9 @@ class _MovieCardWidgetState extends State<MovieCardWidget> {
                             FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
                 ),
-                const Spacer(),
+                Spacer(),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 4.0, 0.0),
                   child: FaIcon(
                     FontAwesomeIcons.solidStar,
                     color: FlutterFlowTheme.of(context).warningOld,

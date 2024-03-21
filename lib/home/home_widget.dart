@@ -4,12 +4,15 @@ import '/backend/backend.dart';
 import '/components/movie_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'home_model.dart';
 export 'home_model.dart';
 
@@ -76,8 +79,8 @@ class _HomeWidgetState extends State<HomeWidget> {
                       final results = getJsonField(
                         pageViewTopRatedResponse.jsonBody,
                         r'''$.results''',
-                      ).toList().take(15).toList();
-                      return SizedBox(
+                      ).toList().take(5).toList();
+                      return Container(
                         width: double.infinity,
                         height: 400.0,
                         child: Stack(
@@ -130,7 +133,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                             }.withoutNulls,
                                           );
                                         },
-                                        child: SizedBox(
+                                        child: Container(
                                           width: double.infinity,
                                           height: 400.0,
                                           child: custom_widgets.ImdbImage(
@@ -150,7 +153,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 1.0),
+                                            AlignmentDirectional(0.0, 1.0),
                                         child: Container(
                                           width: double.infinity,
                                           height: 200.0,
@@ -161,24 +164,24 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 FlutterFlowTheme.of(context)
                                                     .primaryBackground
                                               ],
-                                              stops: const [0.0, 1.0],
-                                              begin: const AlignmentDirectional(
+                                              stops: [0.0, 1.0],
+                                              begin: AlignmentDirectional(
                                                   0.0, -1.0),
-                                              end: const AlignmentDirectional(0, 1.0),
+                                              end: AlignmentDirectional(0, 1.0),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.85),
+                                            AlignmentDirectional(0.0, 0.85),
                                         child: Container(
                                           width: double.infinity,
                                           height: 68.0,
-                                          decoration: const BoxDecoration(),
+                                          decoration: BoxDecoration(),
                                           child: Padding(
                                             padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
+                                                EdgeInsetsDirectional.fromSTEB(
                                                     24.0, 0.0, 24.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -191,7 +194,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 Expanded(
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
+                                                        EdgeInsetsDirectional
                                                             .fromSTEB(0.0, 0.0,
                                                                 8.0, 0.0),
                                                     child: Column(
@@ -227,7 +230,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                         ),
                                                         Padding(
                                                           padding:
-                                                              const EdgeInsetsDirectional
+                                                              EdgeInsetsDirectional
                                                                   .fromSTEB(
                                                                       0.0,
                                                                       8.0,
@@ -261,7 +264,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                 ),
                                                 Align(
                                                   alignment:
-                                                      const AlignmentDirectional(
+                                                      AlignmentDirectional(
                                                           0.0, 0.7),
                                                   child: InkWell(
                                                     splashColor:
@@ -306,7 +309,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                                                 .primary,
                                                         shape: BoxShape.circle,
                                                       ),
-                                                      child: const Align(
+                                                      child: Align(
                                                         alignment:
                                                             AlignmentDirectional(
                                                                 0.0, 0.0),
@@ -330,7 +333,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                               },
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-0.83, 0.95),
+                              alignment: AlignmentDirectional(-0.83, 0.95),
                               child: smooth_page_indicator.SmoothPageIndicator(
                                 controller: _model.pageViewController ??=
                                     PageController(
@@ -342,7 +345,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   await _model.pageViewController!
                                       .animateToPage(
                                     i,
-                                    duration: const Duration(milliseconds: 500),
+                                    duration: Duration(milliseconds: 500),
                                     curve: Curves.ease,
                                   );
                                 },
@@ -353,7 +356,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                                   radius: 16.0,
                                   dotWidth: 12.0,
                                   dotHeight: 6.0,
-                                  dotColor: const Color(0x33EF233C),
+                                  dotColor: Color(0x33EF233C),
                                   activeDotColor:
                                       FlutterFlowTheme.of(context).primary,
                                   paintStyle: PaintingStyle.fill,
@@ -368,18 +371,27 @@ class _HomeWidgetState extends State<HomeWidget> {
                 },
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Now Playing',
+                      'Popular',
                       style: FlutterFlowTheme.of(context).titleSmall,
                     ),
-                    Text(
-                      'See all >',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('PopularMovies');
+                      },
+                      child: Text(
+                        'See all',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -387,7 +399,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 height: 224.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: FutureBuilder<ApiCallResponse>(
@@ -413,7 +425,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         final movies = getJsonField(
                           listViewNowPlayingMoviesResponse.jsonBody,
                           r'''$.results''',
-                        ).toList().take(15).toList();
+                        ).toList().take(8).toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -422,7 +434,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           itemBuilder: (context, moviesIndex) {
                             final moviesItem = movies[moviesIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -470,18 +482,27 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Newest',
+                      'Discover',
                       style: FlutterFlowTheme.of(context).titleSmall,
                     ),
-                    Text(
-                      'See all >',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Discover');
+                      },
+                      child: Text(
+                        'See all',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -489,7 +510,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 height: 224.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: FutureBuilder<ApiCallResponse>(
@@ -515,7 +536,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         final movies = getJsonField(
                           listViewTrendingResponse.jsonBody,
                           r'''$.results''',
-                        ).toList().take(15).toList();
+                        ).toList().take(8).toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -524,7 +545,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                           itemBuilder: (context, moviesIndex) {
                             final moviesItem = movies[moviesIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -572,18 +593,27 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 16.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'Popular Movies',
+                      'Pinoy HD',
                       style: FlutterFlowTheme.of(context).titleSmall,
                     ),
-                    Text(
-                      'See all >',
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.pushNamed('Tagalogmovie');
+                      },
+                      child: Text(
+                        'See all',
+                        style: FlutterFlowTheme.of(context).bodyMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -591,7 +621,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 height: 224.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
                 child: FutureBuilder<ApiCallResponse>(
@@ -617,7 +647,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                         final popularMovies = getJsonField(
                           listViewPopularMoviesTagalogResponse.jsonBody,
                           r'''$.results''',
-                        ).toList().take(15).toList();
+                        ).toList().take(8).toList();
                         return ListView.builder(
                           padding: EdgeInsets.zero,
                           primary: false,
@@ -627,7 +657,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                             final popularMoviesItem =
                                 popularMovies[popularMoviesIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   24.0, 0.0, 0.0, 0.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -680,7 +710,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               Container(
                 width: double.infinity,
                 height: 24.0,
-                decoration: const BoxDecoration(
+                decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
               ),

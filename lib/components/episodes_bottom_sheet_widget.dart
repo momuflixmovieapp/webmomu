@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'episodes_bottom_sheet_model.dart';
 export 'episodes_bottom_sheet_model.dart';
 
@@ -61,7 +62,7 @@ class _EpisodesBottomSheetWidgetState extends State<EpisodesBottomSheetWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
             child: Container(
               width: 80.0,
               height: 6.0,
@@ -94,7 +95,7 @@ class _EpisodesBottomSheetWidgetState extends State<EpisodesBottomSheetWidget> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
               child: FutureBuilder<ApiCallResponse>(
                 future: EpisodesCall.call(),
                 builder: (context, snapshot) {
@@ -127,7 +128,7 @@ class _EpisodesBottomSheetWidgetState extends State<EpisodesBottomSheetWidget> {
                         itemBuilder: (context, episodeIndex) {
                           final episodeItem = episode[episodeIndex];
                           return Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 24.0, 0.0, 0.0),
                             child: PopularcardWidget(
                               key: Key(

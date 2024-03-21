@@ -3,10 +3,12 @@ import '/components/movie_card_widget.dart';
 import '/components/season_card_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'tv_shows_details_model.dart';
 export 'tv_shows_details_model.dart';
 
@@ -79,7 +81,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   Container(
                     width: double.infinity,
                     height: 400.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Color(0xFFEEEEEE),
                     ),
                     child: Stack(
@@ -105,18 +107,18 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                 Colors.transparent,
                                 FlutterFlowTheme.of(context).primaryBackground
                               ],
-                              stops: const [0.0, 1.0],
-                              begin: const AlignmentDirectional(0.0, -1.0),
-                              end: const AlignmentDirectional(0, 1.0),
+                              stops: [0.0, 1.0],
+                              begin: AlignmentDirectional(0.0, -1.0),
+                              end: AlignmentDirectional(0, 1.0),
                             ),
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          alignment: AlignmentDirectional(0.0, 1.0),
                           child: Container(
                             width: double.infinity,
                             height: 96.0,
-                            decoration: const BoxDecoration(
+                            decoration: BoxDecoration(
                               color: Colors.transparent,
                             ),
                             child: Row(
@@ -124,7 +126,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                               children: [
                                 Expanded(
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         24.0, 0.0, 16.0, 0.0),
                                     child: Column(
                                       mainAxisSize: MainAxisSize.max,
@@ -158,7 +160,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
+                                              EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 8.0, 0.0, 8.0),
                                           child: Row(
                                             mainAxisSize: MainAxisSize.max,
@@ -187,7 +189,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 8.0, 0.0),
                                                 child: Container(
@@ -228,7 +230,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                                         ),
                                               ),
                                               Padding(
-                                                padding: const EdgeInsetsDirectional
+                                                padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         8.0, 0.0, 8.0, 0.0),
                                                 child: Container(
@@ -269,7 +271,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                               size: 16.0,
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(4.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 getJsonField(
@@ -300,7 +302,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                               ),
                                             ),
                                             Padding(
-                                              padding: const EdgeInsetsDirectional
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(2.0, 0.0, 0.0, 0.0),
                                               child: Text(
                                                 functions.numOfReviewsFormater(
@@ -328,7 +330,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               24.0, 24.0, 24.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
@@ -345,7 +347,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                 child: Container(
                                   width: 40.0,
                                   height: 40.0,
-                                  decoration: const BoxDecoration(
+                                  decoration: BoxDecoration(
                                     color: Color(0xB3272B30),
                                     shape: BoxShape.circle,
                                   ),
@@ -357,7 +359,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                     onTap: () async {
                                       context.safePop();
                                     },
-                                    child: const Icon(
+                                    child: Icon(
                                       Icons.arrow_back_ios_outlined,
                                       color: Colors.white,
                                       size: 20.0,
@@ -368,7 +370,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                               Container(
                                 width: 40.0,
                                 height: 40.0,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xB3272B30),
                                   shape: BoxShape.circle,
                                 ),
@@ -380,7 +382,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                   onTap: () async {
                                     context.safePop();
                                   },
-                                  child: const Icon(
+                                  child: Icon(
                                     Icons.search_sharp,
                                     color: Colors.white,
                                     size: 20.0,
@@ -395,7 +397,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 24.0, 0.0),
                     child: Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -415,7 +417,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                               ),
                         ),
                         Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 8.0, 0.0, 0.0),
                           child: Text(
                             getJsonField(
@@ -440,7 +442,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 0.0, 8.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 24.0, 0.0, 8.0),
                     child: Text(
                       'Seasons',
                       style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -455,7 +457,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         final season = getJsonField(
@@ -467,7 +469,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                           children: List.generate(season.length, (seasonIndex) {
                             final seasonItem = season[seasonIndex];
                             return Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
+                              padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 16.0),
                               child: InkWell(
                                 splashColor: Colors.transparent,
@@ -544,7 +546,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   ),
                   Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 0.0, 8.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 0.0, 8.0),
                     child: Text(
                       'Similar',
                       style: FlutterFlowTheme.of(context).titleSmall.override(
@@ -560,7 +562,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   Container(
                     width: double.infinity,
                     height: 224.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
                     child: FutureBuilder<ApiCallResponse>(
@@ -598,7 +600,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                                 final similarTvShowsItem =
                                     similarTvShows[similarTvShowsIndex];
                                 return Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       24.0, 0.0, 0.0, 0.0),
                                   child: InkWell(
                                     splashColor: Colors.transparent,
@@ -654,7 +656,7 @@ class _TvShowsDetailsWidgetState extends State<TvShowsDetailsWidget> {
                   Container(
                     width: double.infinity,
                     height: 24.0,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       color: Colors.transparent,
                     ),
                   ),

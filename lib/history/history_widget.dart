@@ -1,9 +1,11 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'history_model.dart';
 export 'history_model.dart';
 
@@ -70,19 +72,19 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                       FlutterFlowTheme.of(context).headlineMediumFamily),
                 ),
           ),
-          actions: const [],
+          actions: [],
           centerTitle: true,
           elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: [
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -93,7 +95,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: SizedBox(
+                        child: Container(
                           width: 150.0,
                           height: 84.0,
                           child: Stack(
@@ -117,16 +119,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       FlutterFlowTheme.of(context)
                                           .secondaryBackground
                                     ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 8.0),
                                   child: LinearPercentIndicator(
                                     percent: 0.2,
@@ -136,14 +138,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                     animateFromLastPercent: true,
                                     progressColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    backgroundColor: const Color(0x41FFFFFF),
-                                    barRadius: const Radius.circular(8.0),
+                                    backgroundColor: Color(0x41FFFFFF),
+                                    barRadius: Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   FFIcons.knamePlay,
                                   color: FlutterFlowTheme.of(context)
@@ -159,11 +161,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         child: Container(
                           width: double.infinity,
                           height: 80.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -187,7 +189,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                 ),
-                                const Spacer(),
+                                Spacer(),
                                 Text(
                                   '00:34:52   /   01:55:00',
                                   style: FlutterFlowTheme.of(context)
@@ -203,7 +205,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     'Last watched: 12h ago',
@@ -235,7 +237,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -246,7 +248,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: SizedBox(
+                        child: Container(
                           width: 150.0,
                           height: 84.0,
                           child: Stack(
@@ -270,16 +272,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       FlutterFlowTheme.of(context)
                                           .secondaryBackground
                                     ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 8.0),
                                   child: LinearPercentIndicator(
                                     percent: 0.6,
@@ -289,14 +291,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                     animateFromLastPercent: true,
                                     progressColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    backgroundColor: const Color(0x41FFFFFF),
-                                    barRadius: const Radius.circular(8.0),
+                                    backgroundColor: Color(0x41FFFFFF),
+                                    barRadius: Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   FFIcons.knamePlay,
                                   color: FlutterFlowTheme.of(context)
@@ -312,11 +314,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         child: Container(
                           width: double.infinity,
                           height: 80.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -340,7 +342,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                 ),
-                                const Spacer(),
+                                Spacer(),
                                 Text(
                                   '00:34:52   /   01:55:00',
                                   style: FlutterFlowTheme.of(context)
@@ -356,7 +358,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     'Last watched: 13h ago',
@@ -388,7 +390,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -399,7 +401,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: SizedBox(
+                        child: Container(
                           width: 150.0,
                           height: 84.0,
                           child: Stack(
@@ -423,16 +425,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       FlutterFlowTheme.of(context)
                                           .secondaryBackground
                                     ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 8.0),
                                   child: LinearPercentIndicator(
                                     percent: 0.1,
@@ -442,14 +444,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                     animateFromLastPercent: true,
                                     progressColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    backgroundColor: const Color(0x41FFFFFF),
-                                    barRadius: const Radius.circular(8.0),
+                                    backgroundColor: Color(0x41FFFFFF),
+                                    barRadius: Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   FFIcons.knamePlay,
                                   color: FlutterFlowTheme.of(context)
@@ -465,11 +467,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         child: Container(
                           width: double.infinity,
                           height: 80.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -493,7 +495,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                 ),
-                                const Spacer(),
+                                Spacer(),
                                 Text(
                                   '00:34:52   /   01:55:00',
                                   style: FlutterFlowTheme.of(context)
@@ -509,7 +511,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     'Last watched: 1d ago',
@@ -541,7 +543,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     children: [
@@ -552,7 +554,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                         ),
-                        child: SizedBox(
+                        child: Container(
                           width: 150.0,
                           height: 84.0,
                           child: Stack(
@@ -576,16 +578,16 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       FlutterFlowTheme.of(context)
                                           .secondaryBackground
                                     ],
-                                    stops: const [0.0, 1.0],
-                                    begin: const AlignmentDirectional(0.0, -1.0),
-                                    end: const AlignmentDirectional(0, 1.0),
+                                    stops: [0.0, 1.0],
+                                    begin: AlignmentDirectional(0.0, -1.0),
+                                    end: AlignmentDirectional(0, 1.0),
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 1.0),
+                                alignment: AlignmentDirectional(0.0, 1.0),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       8.0, 0.0, 8.0, 8.0),
                                   child: LinearPercentIndicator(
                                     percent: 0.95,
@@ -595,14 +597,14 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                     animateFromLastPercent: true,
                                     progressColor:
                                         FlutterFlowTheme.of(context).primary,
-                                    backgroundColor: const Color(0x41FFFFFF),
-                                    barRadius: const Radius.circular(8.0),
+                                    backgroundColor: Color(0x41FFFFFF),
+                                    barRadius: Radius.circular(8.0),
                                     padding: EdgeInsets.zero,
                                   ),
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                alignment: AlignmentDirectional(0.0, 0.0),
                                 child: Icon(
                                   FFIcons.knamePlay,
                                   color: FlutterFlowTheme.of(context)
@@ -618,11 +620,11 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                         child: Container(
                           width: double.infinity,
                           height: 80.0,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             color: Colors.transparent,
                           ),
                           child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
+                            padding: EdgeInsetsDirectional.fromSTEB(
                                 16.0, 0.0, 0.0, 0.0),
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
@@ -647,7 +649,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                 ),
-                                const Spacer(),
+                                Spacer(),
                                 Text(
                                   '00:34:52   /   01:55:00',
                                   style: FlutterFlowTheme.of(context)
@@ -663,7 +665,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                       ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 4.0, 0.0, 0.0),
                                   child: Text(
                                     'Last watched: 1d ago',

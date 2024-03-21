@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'onboarding_model.dart';
 export 'onboarding_model.dart';
@@ -48,7 +49,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
           mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Spacer(),
+            Spacer(),
             Image.network(
               'https://i.postimg.cc/GmbPxghG/Onboarding-1-4x.png',
               width: double.infinity,
@@ -59,7 +60,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
               width: double.infinity,
               decoration: BoxDecoration(
                 color: FlutterFlowTheme.of(context).secondaryBackground,
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(0.0),
                   bottomRight: Radius.circular(0.0),
                   topLeft: Radius.circular(16.0),
@@ -67,7 +68,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -88,7 +89,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Text(
                         'Be the first one to watch the latest movies and series on Momuflix',
                         textAlign: TextAlign.center,
@@ -104,13 +105,13 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                     ),
                     Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 24.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 24.0),
                       child: FFButtonWidget(
                         onPressed: () async {
                           await showModalBottomSheet(
                             isScrollControlled: true,
                             backgroundColor: Colors.transparent,
-                            barrierColor: const Color(0x00000000),
+                            barrierColor: Color(0x00000000),
                             context: context,
                             builder: (context) {
                               return WebViewAware(
@@ -122,7 +123,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                           : FocusScope.of(context).unfocus(),
                                   child: Padding(
                                     padding: MediaQuery.viewInsetsOf(context),
-                                    child: const SizedBox(
+                                    child: Container(
                                       height: 260.0,
                                       child: LoginBottomSheetWidget(),
                                     ),
@@ -136,9 +137,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         options: FFButtonOptions(
                           width: double.infinity,
                           height: 48.0,
-                          padding: const EdgeInsetsDirectional.fromSTEB(
+                          padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
-                          iconPadding: const EdgeInsetsDirectional.fromSTEB(
+                          iconPadding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 0.0),
                           color: FlutterFlowTheme.of(context).primary,
                           textStyle: FlutterFlowTheme.of(context)
@@ -153,7 +154,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                                         .bodySmallFamily),
                               ),
                           elevation: 2.0,
-                          borderSide: const BorderSide(
+                          borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 0.0,
                           ),

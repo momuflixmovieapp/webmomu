@@ -3,8 +3,10 @@ import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/random_data_util.dart' as random_data;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'login_bottom_sheet_model.dart';
 export 'login_bottom_sheet_model.dart';
 
@@ -46,7 +48,7 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
       height: double.infinity,
       decoration: BoxDecoration(
         color: FlutterFlowTheme.of(context).secondaryBackground,
-        borderRadius: const BorderRadius.only(
+        borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(0.0),
           bottomRight: Radius.circular(0.0),
           topLeft: Radius.circular(16.0),
@@ -54,7 +56,7 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
+        padding: EdgeInsetsDirectional.fromSTEB(24.0, 8.0, 24.0, 0.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
@@ -67,7 +69,7 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 16.0),
               child: Text(
                 'Start with',
                 style: FlutterFlowTheme.of(context).titleSmall,
@@ -88,9 +90,9 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                   child: ListTile(
-                    leading: const Icon(
+                    leading: Icon(
                       FFIcons.knameUser,
                       color: Colors.white,
                       size: 32.0,
@@ -111,25 +113,25 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                             fontFamily:
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
-                            color: const Color(0xA8E9EAEA),
+                            color: Color(0xA8E9EAEA),
                             fontSize: 12.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
                     ),
-                    trailing: const Icon(
+                    trailing: Icon(
                       Icons.arrow_forward_ios,
                       color: Colors.white,
                       size: 20.0,
                     ),
-                    tileColor: const Color(0xFFF5F5F5),
+                    tileColor: Color(0xFFF5F5F5),
                     dense: false,
                   ),
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 8.0),
               child: InkWell(
                 splashColor: Colors.transparent,
                 focusColor: Colors.transparent,
@@ -179,7 +181,7 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                     child: ListTile(
                       leading: Icon(
                         FFIcons.knameUser,
@@ -215,7 +217,7 @@ class _LoginBottomSheetWidgetState extends State<LoginBottomSheetWidget> {
                         color: FlutterFlowTheme.of(context).primaryText,
                         size: 20.0,
                       ),
-                      tileColor: const Color(0xFFF5F5F5),
+                      tileColor: Color(0xFFF5F5F5),
                       dense: false,
                     ),
                   ),

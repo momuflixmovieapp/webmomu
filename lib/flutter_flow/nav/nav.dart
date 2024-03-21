@@ -1,13 +1,21 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import '/backend/backend.dart';
 
+import '/backend/supabase/supabase.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
 import '/main.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/lat_lng.dart';
+import '/flutter_flow/place.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'serialization_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
@@ -72,34 +80,34 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const NavBarPage() : const OnboardingWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? const NavBarPage() : const OnboardingWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : OnboardingWidget(),
         ),
         FFRoute(
           name: 'Onboarding',
           path: '/onboarding',
-          builder: (context, params) => const OnboardingWidget(),
+          builder: (context, params) => OnboardingWidget(),
         ),
         FFRoute(
           name: 'SignIn',
           path: '/signIn',
-          builder: (context, params) => const SignInWidget(),
+          builder: (context, params) => SignInWidget(),
         ),
         FFRoute(
           name: 'SignUp',
           path: '/signUp',
-          builder: (context, params) => const SignUpWidget(),
+          builder: (context, params) => SignUpWidget(),
         ),
         FFRoute(
           name: 'Home',
           path: '/home',
           builder: (context, params) =>
-              params.isEmpty ? const NavBarPage(initialPage: 'Home') : const HomeWidget(),
+              params.isEmpty ? NavBarPage(initialPage: 'Home') : HomeWidget(),
         ),
         FFRoute(
           name: 'MovieDetails',
@@ -127,57 +135,41 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: 'Search',
           path: '/search',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Search')
-              : const SearchWidget(),
+          builder: (context, params) => SearchWidget(),
         ),
         FFRoute(
           name: 'Profile',
           path: '/profile',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'Profile')
-              : const ProfileWidget(),
+              ? NavBarPage(initialPage: 'Profile')
+              : ProfileWidget(),
         ),
         FFRoute(
           name: 'Bookmark',
           path: '/bookmark',
-          builder: (context, params) => const BookmarkWidget(),
+          builder: (context, params) => BookmarkWidget(),
         ),
         FFRoute(
           name: 'History',
           path: '/history',
-          builder: (context, params) => const HistoryWidget(),
+          builder: (context, params) => HistoryWidget(),
         ),
         FFRoute(
           name: 'Settings',
           path: '/settings',
-          builder: (context, params) => const SettingsWidget(),
+          builder: (context, params) => SettingsWidget(),
         ),
         FFRoute(
           name: 'Subscription',
           path: '/subscription',
-          builder: (context, params) => const SubscriptionWidget(),
+          builder: (context, params) => SubscriptionWidget(),
         ),
         FFRoute(
           name: 'MusicList',
           path: '/musicList',
           builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'MusicList')
-              : const MusicListWidget(),
-        ),
-        FFRoute(
-          name: 'WatchingMovie',
-          path: '/watchingMovie',
-          builder: (context, params) => WatchingMovieWidget(
-            id: params.getParam('id', ParamType.int),
-          ),
-        ),
-        FFRoute(
-          name: 'ListofMoviesPH',
-          path: '/listofMoviesPH',
-          builder: (context, params) => params.isEmpty
-              ? const NavBarPage(initialPage: 'ListofMoviesPH')
-              : const ListofMoviesPHWidget(),
+              ? NavBarPage(initialPage: 'MusicList')
+              : MusicListWidget(),
         ),
         FFRoute(
           name: 'Trailer',
@@ -187,9 +179,40 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           ),
         ),
         FFRoute(
-          name: 'tagalogMovies',
-          path: '/tagalogMovies',
-          builder: (context, params) => const TagalogMoviesWidget(),
+          name: 'PlayTagalog',
+          path: '/playTagalog',
+          builder: (context, params) => PlayTagalogWidget(
+            movie: params.getParam('movie', ParamType.String),
+          ),
+        ),
+        FFRoute(
+          name: 'PopularMovies',
+          path: '/popularMovies',
+          builder: (context, params) => PopularMoviesWidget(),
+        ),
+        FFRoute(
+          name: 'NowPlaying',
+          path: '/nowPlaying',
+          builder: (context, params) => NowPlayingWidget(),
+        ),
+        FFRoute(
+          name: 'Discover',
+          path: '/discover',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Discover')
+              : DiscoverWidget(),
+        ),
+        FFRoute(
+          name: 'Newest',
+          path: '/newest',
+          builder: (context, params) => NewestWidget(),
+        ),
+        FFRoute(
+          name: 'Tagalogmovie',
+          path: '/tagalogmovie',
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'Tagalogmovie')
+              : TagalogmovieWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
       observers: [routeObserver],
@@ -371,17 +394,19 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.black,
-                  child: Center(
-                    child: Image.asset(
-                      'assets/images/Untitled_design_(1).gif',
-                      width: double.infinity,
-                      height: double.infinity,
-                      fit: BoxFit.contain,
-                    ),
-                  ),
-                )
+              ? isWeb
+                  ? Container()
+                  : Container(
+                      color: Colors.black,
+                      child: Center(
+                        child: Image.asset(
+                          'assets/images/Untitled_design_(1).gif',
+                          width: double.infinity,
+                          height: double.infinity,
+                          fit: BoxFit.contain,
+                        ),
+                      ),
+                    )
               : page;
 
           final transitionInfo = state.transitionInfo;
@@ -424,7 +449,7 @@ class TransitionInfo {
   final Duration duration;
   final Alignment? alignment;
 
-  static TransitionInfo appDefault() => const TransitionInfo(hasTransition: false);
+  static TransitionInfo appDefault() => TransitionInfo(hasTransition: false);
 }
 
 class RootPageContext {

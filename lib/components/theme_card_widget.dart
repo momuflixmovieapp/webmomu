@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'theme_card_model.dart';
 export 'theme_card_model.dart';
 
@@ -61,12 +62,12 @@ class _ThemeCardWidgetState extends State<ThemeCardWidget> {
         children: [
           if (!widget.isRightIcon!)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
               child: widget.icon!,
             ),
-          if (widget.isRightIcon ?? true) const Spacer(),
+          if (widget.isRightIcon ?? true) Spacer(),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
             child: Text(
               widget.title!,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -80,7 +81,7 @@ class _ThemeCardWidgetState extends State<ThemeCardWidget> {
           ),
           if (widget.isRightIcon ?? true)
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
               child: widget.icon!,
             ),
         ],

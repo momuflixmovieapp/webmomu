@@ -14,8 +14,10 @@ export '/history/history_widget.dart' show HistoryWidget;
 export '/settings/settings_widget.dart' show SettingsWidget;
 export '/subscription/subscription_widget.dart' show SubscriptionWidget;
 export '/music_list/music_list_widget.dart' show MusicListWidget;
-export '/watching_movie/watching_movie_widget.dart' show WatchingMovieWidget;
-export '/listof_movies_p_h/listof_movies_p_h_widget.dart'
-    show ListofMoviesPHWidget;
 export '/trailer/trailer_widget.dart' show TrailerWidget;
-export '/tagalog_movies/tagalog_movies_widget.dart' show TagalogMoviesWidget;
+export '/play_tagalog/play_tagalog_widget.dart' show PlayTagalogWidget;
+export '/popular_movies/popular_movies_widget.dart' show PopularMoviesWidget;
+export '/now_playing/now_playing_widget.dart' show NowPlayingWidget;
+export '/discover/discover_widget.dart' show DiscoverWidget;
+export '/newest/newest_widget.dart' show NewestWidget;
+export '/tagalogmovie/tagalogmovie_widget.dart' show TagalogmovieWidget;

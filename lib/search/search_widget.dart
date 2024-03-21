@@ -1,9 +1,11 @@
 import '/backend/api_requests/api_calls.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'search_model.dart';
 export 'search_model.dart';
 
@@ -52,7 +54,7 @@ class _SearchWidgetState extends State<SearchWidget> {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
+                padding: EdgeInsetsDirectional.fromSTEB(24.0, 16.0, 24.0, 24.0),
                 child: Form(
                   key: _model.formKey,
                   autovalidateMode: AutovalidateMode.disabled,
@@ -61,20 +63,21 @@ class _SearchWidgetState extends State<SearchWidget> {
                     focusNode: _model.searchTextFocusNode,
                     onChanged: (_) => EasyDebounce.debounce(
                       '_model.searchTextController',
-                      const Duration(milliseconds: 500),
+                      Duration(milliseconds: 500),
                       () async {
-                        var shouldSetState = false;
-                        if (_model.searchTextController.text != '') {
+                        var _shouldSetState = false;
+                        if (_model.searchTextController.text != null &&
+                            _model.searchTextController.text != '') {
                           _model.movies = await SearchMoviesCall.call(
                             query: _model.searchTextController.text,
                           );
-                          shouldSetState = true;
+                          _shouldSetState = true;
                         } else {
-                          if (shouldSetState) setState(() {});
+                          if (_shouldSetState) setState(() {});
                           return;
                         }
 
-                        if (shouldSetState) setState(() {});
+                        if (_shouldSetState) setState(() {});
                       },
                     ),
                     autofocus: true,
@@ -90,21 +93,21 @@ class _SearchWidgetState extends State<SearchWidget> {
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       errorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 1.0,
                         ),
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       focusedErrorBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Color(0x00000000),
                           width: 1.0,
                         ),
@@ -121,16 +124,17 @@ class _SearchWidgetState extends State<SearchWidget> {
                   ),
                 ),
               ),
-              if (_model.searchTextController.text == '')
+              if (_model.searchTextController.text == null ||
+                  _model.searchTextController.text == '')
                 Padding(
-                  padding: const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
                         width: double.infinity,
                         height: MediaQuery.sizeOf(context).height * 0.15,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Colors.transparent,
                         ),
                       ),
@@ -141,7 +145,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 24.0, 0.0, 0.0),
                         child: Text(
                           'Search in Momuflix',
                           style: FlutterFlowTheme.of(context).headlineMedium,
@@ -149,7 +153,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 9.0, 0.0, 0.0),
                         child: Text(
                           'By typing in search box, Search in movies, series and actors then show you the best results. ',
                           textAlign: TextAlign.center,
@@ -159,11 +163,12 @@ class _SearchWidgetState extends State<SearchWidget> {
                     ],
                   ),
                 ),
-              if (_model.searchTextController.text != '')
+              if (_model.searchTextController.text != null &&
+                  _model.searchTextController.text != '')
                 Expanded(
                   child: Padding(
                     padding:
-                        const EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     child: Builder(
                       builder: (context) {
                         final searMovies = getJsonField(
@@ -173,7 +178,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                         return GridView.builder(
                           padding: EdgeInsets.zero,
                           gridDelegate:
-                              const SliverGridDelegateWithFixedCrossAxisCount(
+                              SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 3,
                             crossAxisSpacing: 24.0,
                             mainAxisSpacing: 16.0,
@@ -224,7 +229,7 @@ class _SearchWidgetState extends State<SearchWidget> {
                                     ),
                                   ),
                                   Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 4.0, 0.0, 0.0),
                                     child: Text(
                                       getJsonField(

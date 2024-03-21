@@ -2,8 +2,10 @@ import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'card_tagalog_model.dart';
 export 'card_tagalog_model.dart';
 
@@ -33,8 +35,8 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
           curve: Curves.easeInOut,
           delay: 0.ms,
           duration: 800.ms,
-          begin: const Offset(50.0, 0.0),
-          end: const Offset(0.0, 0.0),
+          begin: Offset(50.0, 0.0),
+          end: Offset(0.0, 0.0),
         ),
       ],
     ),
@@ -71,13 +73,13 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
+      padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
       child: Container(
         width: double.infinity,
         height: 100.0,
         decoration: BoxDecoration(
           color: FlutterFlowTheme.of(context).secondaryBackground,
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
               blurRadius: 4.0,
               color: Color(0x230E151B),
@@ -89,7 +91,7 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: const BorderRadius.only(
+              borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(12.0),
                 bottomRight: Radius.circular(0.0),
                 topLeft: Radius.circular(12.0),
@@ -103,13 +105,13 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(-0.9, 0.85),
+              alignment: AlignmentDirectional(-0.9, 0.85),
               child: Container(
                 width: 32.0,
                 height: 32.0,
                 decoration: BoxDecoration(
                   color: FlutterFlowTheme.of(context).secondaryBackground,
-                  boxShadow: const [
+                  boxShadow: [
                     BoxShadow(
                       blurRadius: 4.0,
                       color: Color(0x230E151B),
@@ -126,7 +128,7 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
               ),
             ),
             Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
+              padding: EdgeInsetsDirectional.fromSTEB(130.0, 0.0, 12.0, 0.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -137,7 +139,7 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
                     style: FlutterFlowTheme.of(context).bodyLarge,
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 4.0),
                     child: Text(
                       '4 Min',
                       style: FlutterFlowTheme.of(context).labelSmall,
@@ -157,7 +159,7 @@ class _CardTagalogWidgetState extends State<CardTagalogWidget>
                       ),
                       Padding(
                         padding:
-                            const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),
                         child: Text(
                           'George Switzer',
                           style: FlutterFlowTheme.of(context)

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'season_card_model.dart';
 export 'season_card_model.dart';
 
@@ -54,14 +55,14 @@ class _SeasonCardWidgetState extends State<SeasonCardWidget> {
     return Container(
       width: double.infinity,
       height: 140.0,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         color: Colors.transparent,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: Image.network(
@@ -77,7 +78,7 @@ class _SeasonCardWidgetState extends State<SeasonCardWidget> {
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +89,7 @@ class _SeasonCardWidgetState extends State<SeasonCardWidget> {
                     style: FlutterFlowTheme.of(context).titleSmall,
                   ),
                   Padding(
-                    padding: const EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 4.0, 0.0, 0.0),
                     child: Text(
                       '${valueOrDefault<String>(
                         widget.year?.toString(),
@@ -108,7 +109,7 @@ class _SeasonCardWidgetState extends State<SeasonCardWidget> {
                   Expanded(
                     child: Padding(
                       padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                          EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
                       child: Text(
                         widget.overview!,
                         style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -128,7 +129,7 @@ class _SeasonCardWidgetState extends State<SeasonCardWidget> {
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
             child: Icon(
               FFIcons.knameRightArrow2,
               color: FlutterFlowTheme.of(context).primaryText,

@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'profile_option_card_with_arrow_model.dart';
 export 'profile_option_card_with_arrow_model.dart';
 
@@ -58,7 +59,7 @@ class _ProfileOptionCardWithArrowWidgetState
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
             child: widget.icon!,
           ),
           Expanded(
@@ -74,7 +75,7 @@ class _ProfileOptionCardWithArrowWidgetState
             ),
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
             child: Icon(
               FFIcons.knameRightArrow2,
               color: FlutterFlowTheme.of(context).primaryText,

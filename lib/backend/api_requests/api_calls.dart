@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -106,7 +107,7 @@ class TvShowsInfoCall {
     return ApiManager.instance.makeApiCall(
       callName: 'TvShowsInfo',
       apiUrl:
-          'https://api.themoviedb.org/3/tv/$tvId?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/tv/${tvId}?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -172,7 +173,7 @@ class MovieDetailsCall {
     return ApiManager.instance.makeApiCall(
       callName: 'MovieDetails',
       apiUrl:
-          'https://api.themoviedb.org/3/movie/$movieId?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/movie/${movieId}?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -192,7 +193,7 @@ class MovieCastCall {
     return ApiManager.instance.makeApiCall(
       callName: 'MovieCast',
       apiUrl:
-          'https://api.themoviedb.org/3/movie/$movieId/credits?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -212,7 +213,7 @@ class MovieImagesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'MovieImages',
       apiUrl:
-          'https://api.themoviedb.org/3/movie/$movieId/images?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/movie/${movieId}/images?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -232,7 +233,7 @@ class SimilerMoviesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SimilerMovies',
       apiUrl:
-          'https://api.themoviedb.org/3/movie/$movieId/similar?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&page=1',
+          'https://api.themoviedb.org/3/movie/${movieId}/similar?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&page=1',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -252,7 +253,7 @@ class SearchMoviesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'searchMovies',
       apiUrl:
-          'https://api.themoviedb.org/3/search/movie?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&query=$query&page=1&include_adult=false',
+          'https://api.themoviedb.org/3/search/movie?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&query=${query}&page=1&include_adult=false',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -272,7 +273,7 @@ class TvCastsCall {
     return ApiManager.instance.makeApiCall(
       callName: 'TvCasts',
       apiUrl:
-          'https://api.themoviedb.org/3/tv/$tvId/credits?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/tv/${tvId}/credits?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -292,7 +293,7 @@ class SimilarTvShowsCall {
     return ApiManager.instance.makeApiCall(
       callName: 'SimilarTvShows',
       apiUrl:
-          'https://api.themoviedb.org/3/tv/$tvId/similar?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&page=1',
+          'https://api.themoviedb.org/3/tv/${tvId}/similar?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US&page=1',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -313,7 +314,7 @@ class EpisodesCall {
     return ApiManager.instance.makeApiCall(
       callName: 'Episodes',
       apiUrl:
-          'https://api.themoviedb.org/3/tv/$tvId/season/$seasonNumber?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/tv/${tvId}/season/${seasonNumber}?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {},
@@ -329,14 +330,14 @@ class EpisodesCall {
 class TrailerCall {
   static Future<ApiCallResponse> call({
     int? movieId = 738031,
-    dynamic keyJson,
+    dynamic? keyJson,
   }) async {
     final key = _serializeJson(keyJson);
 
     return ApiManager.instance.makeApiCall(
       callName: 'Trailer',
       apiUrl:
-          'https://api.themoviedb.org/3/movie/$movieId/videos?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
+          'https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=7380315e84286ea0e70a4c6d419f62a8&language=en-US',
       callType: ApiCallType.GET,
       headers: {},
       params: {

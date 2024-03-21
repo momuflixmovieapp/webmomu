@@ -2,6 +2,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'subscription_card_model.dart';
 export 'subscription_card_model.dart';
 
@@ -61,7 +62,7 @@ class _SubscriptionCardWidgetState extends State<SubscriptionCardWidget> {
         mainAxisSize: MainAxisSize.max,
         children: [
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
             child: Icon(
               FFIcons.knameCrown,
               color: widget.color,
@@ -131,7 +132,7 @@ class _SubscriptionCardWidgetState extends State<SubscriptionCardWidget> {
             dense: false,
           ),
           Padding(
-            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
             child: ListTile(
               leading: Icon(
                 FFIcons.knameTick,
